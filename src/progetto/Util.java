@@ -1,5 +1,6 @@
 package progetto;
 
+import java.io.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -14,12 +15,14 @@ public class Util {
     }
 
     public static String getTopBar() {
-        return "<nav><div class='nav-wrapper blue'>\n" +
-                "      <a href='/dashboard.jsp' class='brand-logo' style='padding-left:10px'>WEBOrdini</a>\n" +
-                "      <ul class='right hide-on-med-and-down'>\n" +
-                "        <li><div onclick='alert(\"CIAO\")><i class='material-icons left'>hamburger</i>Link with Left Icon</div></li>\n" +
-                "      </ul>\n" +
-                "    </div></nav>";
+        return "<nav>\n" +
+                "    <div class=\"nav-wrapper blue darken-4\">\n" +
+                "        <a href=\"#\" class=\"brand-logo light\">WEB orders</a>\n" +
+                "        <ul id=\"nav-mobile\" class=\"right hide-on-med-and-down\">\n" +
+                "            <li><a class='dropdown-button btn-flat white-text' href='#'>Logout</a></li>\n" +
+                "        </ul>\n" +
+                "    </div>\n" +
+                "</nav>";
     }
 
     public static String getFooter() {
@@ -33,7 +36,7 @@ public class Util {
             Class.forName("com.mysql.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://10.0.0.112:3306/progB?autoReconnect=true&useSSL=false", "root", "Task634Keep");
             ResultSet res = con.createStatement().executeQuery("SELECT * FROM users");
-            return("Success");
+            return ("Success");
             //return res.getString(0);
         } catch (Exception e) {
             e.printStackTrace();
