@@ -12,28 +12,31 @@
 </head>
 <body class="grey lighten-2">
 <%=Util.getTopBar()%>
-<div class="row white-text">
-    <div class="col s12 m4">
-        <div class="card small blue darken-4 hoverable">
-            <div class="card-content">
-                <h4>Anagrafica Dipendenti</h4>
-            </div>
-        </div>
-    </div>
-    <div class="col s12 m4">
-        <div class="card small blue darken-4 hoverable">
-            <div class="card-content">
-                <h4>Anagrafica Fornitori</h4>
-            </div>
-        </div>
-    </div>
-    <div class="col s12 m4">
-        <div class="card small blue darken-4 hoverable">
-            <div class="card-content">
-                <h4>Ordini</h4>
-            </div>
-        </div>
-    </div>
+<div class="container white-text">
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Cognome</th>
+            <th>Email</th>
+            <th style="width: 1px;">Azioni</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr>
+            <td>001</td>
+            <td>Marco</td>
+            <td>Rossi</td>
+            <td>marcorossi@weborders.com</td>
+            <td>
+                <i class="material-icons small">edit</i>
+                <i class="material-icons small">delete</i>
+            </td>
+        </tr>
+        </tbody>
+    </table>
 </div>
 <%=Util.getFooter()%>
 </body>

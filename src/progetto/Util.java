@@ -1,6 +1,5 @@
 package progetto;
 
-import java.io.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -17,7 +16,7 @@ public class Util {
     public static String getTopBar() {
         return "<nav>\n" +
                 "    <div class=\"nav-wrapper blue darken-4\">\n" +
-                "        <a href=\"#\" class=\"brand-logo light\">WEB orders</a>\n" +
+                "        <a href=\"/dashboard.jsp\" class=\"brand-logo light\">WEB orders</a>\n" +
                 "        <ul id=\"nav-mobile\" class=\"right hide-on-med-and-down\">\n" +
                 "            <li><a class='dropdown-button btn-flat white-text' href='#'>Logout</a></li>\n" +
                 "        </ul>\n" +
@@ -31,16 +30,14 @@ public class Util {
         return footer;
     }
 
-    public static String checkLogin(String username, String password) {
+    static void checkLogin(String username, String password) {
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://10.0.0.112:3306/progB?autoReconnect=true&useSSL=false", "root", "Task634Keep");
+            Connection con = DriverManager.getConnection("jdbc:mysql://10.0.0.112:3306/progB?autoReconnect=true&useSSL=false", username, password);
             ResultSet res = con.createStatement().executeQuery("SELECT * FROM users");
-            return ("Success");
             //return res.getString(0);
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return null;
     }
 }
